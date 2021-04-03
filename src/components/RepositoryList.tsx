@@ -3,14 +3,14 @@ import { RepositoryItem } from "./RepositoryItem";
 
 import '../styles/repositories.scss';
 
-const repository = {
-  name: 'Github Explorer',
-  description: 'Repositório do primeiro módulo do Ignite',
-  link: 'https://github.com/Carol111/ignite-react-01-github-explorer'
+interface Repository {
+  name: string;
+  description: string;
+  html_url: string;
 }
 
 export function RepositoryList() {
-  const [repositories, setRepositories] = useState([]);
+  const [repositories, setRepositories] = useState<Repository[]>([]);
 
   useEffect(() => {
     fetch('https://api.github.com/users/Carol111/repos')
